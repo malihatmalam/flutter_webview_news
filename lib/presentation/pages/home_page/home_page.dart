@@ -9,48 +9,52 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('News BSI'),
-        centerTitle: true,
-        bottom: TabBar(
-            tabs: [
-              Tab(
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.home),
-                        Text('Home'),
-                      ],
-                    ),
-                  )
-              ),
-              Tab(
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.favorite),
-                        Text('Favorite'),
-                      ],
-                    ),
-                  )
-              )
-            ]
+    return DefaultTabController(
+      initialIndex: 0,
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('News BSI'),
+          centerTitle: true,
+          bottom: TabBar(
+              tabs: [
+                Tab(
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.home),
+                          Text('Home'),
+                        ],
+                      ),
+                    )
+                ),
+                Tab(
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.favorite),
+                          Text('Favorite'),
+                        ],
+                      ),
+                    )
+                )
+              ]
+          ),
         ),
-      ),
-      body: TabBarView(
-        children: [
-          Scaffold(
-            body: HomeNewsPageWrapperProvider(),
-          ),
-          Scaffold(
-            body: FavoritePageWrapperProvider(),
-          ),
-        ],
+        body: TabBarView(
+          children: [
+            Scaffold(
+              body: HomeNewsPageWrapperProvider(),
+            ),
+            Scaffold(
+              body: FavoritePageWrapperProvider(),
+            ),
+          ],
+        ),
       ),
     );
   }

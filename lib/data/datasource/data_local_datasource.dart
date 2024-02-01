@@ -3,9 +3,7 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class DataLocalDataSourceImpl{
-  DataLocalDataSourceImpl(){
-    openBox();
-  }
+  DataLocalDataSourceImpl(){}
 
   void openBox() async {
     Hive.initFlutter();

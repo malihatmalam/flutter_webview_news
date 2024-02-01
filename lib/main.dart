@@ -3,10 +3,13 @@ import 'package:flutter_webview_news/data/models/favorite/favorite.dart';
 import 'package:flutter_webview_news/presentation/core/router/router.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:path_provider/path_provider.dart' as path_provider;
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   Hive.initFlutter();
+  final appDocumentDir = await path_provider.getApplicationDocumentsDirectory();
+  Hive.init(appDocumentDir.path);
   Hive.registerAdapter(FavoriteAdapter());
   await Hive.openBox<Favorite>('favorite');
 

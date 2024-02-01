@@ -1,7 +1,3 @@
-
-
-import 'dart:js_interop_unsafe';
-
 import 'package:dartz/dartz.dart';
 import 'package:flutter_webview_news/data/models/favorite/favorite.dart';
 import 'package:flutter_webview_news/data/repositories/favorite_repo_impl.dart';

@@ -2,6 +2,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class DetailNewPage extends StatefulWidget {
@@ -25,6 +26,12 @@ class _DetailNewPageState extends State<DetailNewPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Detail Webview'),
+        leading: IconButton(
+            onPressed: () {
+              context.go('/');
+            },
+            icon: Icon(Icons.arrow_back)
+        ),
       ),
       body: WebView(
         initialUrl: _url,

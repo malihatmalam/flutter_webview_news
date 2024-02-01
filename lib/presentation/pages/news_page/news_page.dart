@@ -1,9 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_webview_news/data/models/favorite/favorite.dart';
+import 'package:flutter_webview_news/domain/usecases/favorite_usecases.dart';
 import 'package:flutter_webview_news/presentation/pages/news_page/cubit/news_cubit.dart';
 import 'package:flutter_webview_news/presentation/pages/news_page/widget/error_message.dart';
 import 'package:go_router/go_router.dart';
+
+import '../favorite_page/cubit/favorite_cubit.dart';
 
 class HomeNewsPageWrapperProvider extends StatelessWidget {
   const HomeNewsPageWrapperProvider({super.key});
@@ -61,11 +65,22 @@ class HomeNewsPage extends StatelessWidget {
                               Positioned(
                                 bottom: 10.0,
                                 right: 20.0,
-                                child: Icon(
-                                  Icons.favorite,
-                                  color: Colors.red,
-                                  size: 40.0,
-                                ),
+                                child: IconButton(
+                                    onPressed: () {
+                                      FavoriteUseCases().storeFavorite(
+                                          title: listNews[index].title,
+                                          url: listNews[index].url
+                                      );
+                                      BlocProvider.of<FavoriteCubit>(context).favoriteGetData();
+                                    },
+                                    icon: Icon(
+                                      Icons.favorite,
+                                      color: Colors.red,
+                                      size: 40.0,
+                                    ),
+                                )
+
+
                               ),
                             ],
                           ),
