@@ -3,7 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../pages/news_page/news_page.dart';
+import '../../pages/detail_news_page/detail_page.dart';
+import '../../pages/home_page/home_page.dart';
 
 class RouterNavigation{
 
@@ -11,32 +12,18 @@ class RouterNavigation{
     return GoRouter(
         initialLocation: '/',
         routes: [
-          // GoRoute(
-          //     path: '/',
-          //     name: 'index',
-          //     builder: (context, state) => HomePage(),
-          // ),
           GoRoute(
-            path: '/',
-            name: 'index',
-            builder: (context, state) => HomeNewsPageWrapperProvider(),
-          // ),
-          // GoRoute(
-          //   path: '/list-favorite',
-          //   name: 'listFavorite',
-          //   builder: (context, state) => ListNewsFavoritePageWrapperProvider(),
-          // // ),
-          // GoRoute(
-          //   path: '/detail/:url',
-          //   name: 'listFavorite',
-          //   builder: (context, state) {
-          //     var url = state.pathParameters['url'];
-          //     return DetailNewPage(url);
-          //   },
+              path: '/',
+              name: 'index',
+              builder: (context, state) => HomePage(),
+          ),
+          GoRoute(
+            path: '/detail',
+            name: 'listFavorite',
+            builder: (context, state) => DetailNewPage( url: state.extra!.toString()),
           ),
         ]
     );
   }
-
 }
 

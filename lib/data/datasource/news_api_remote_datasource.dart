@@ -16,7 +16,7 @@ class NewsApiRemoteDatasourceImpl implements NewsApiRemoteDatasource{
   @override
   Future<List<NewsEntity>> getRamdonNewsFromApi() async {
     final response = await client.get(
-      Uri.parse('https://newsapi.org/v2/everything?q=keyword&apiKey=4b397c0b925c48649a61b00c6ab69622'),
+      Uri.parse('https://newsapi.org/v2/everything?q=keyword&apiKey=e0b270b68fc34e42956e8d8d206302ee'),
       headers: {
         'accept': 'application/json ',
       },

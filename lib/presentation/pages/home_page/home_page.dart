@@ -1,6 +1,8 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_webview_news/presentation/pages/favorite_page/favorite_page.dart';
+import 'package:flutter_webview_news/presentation/pages/news_page/news_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -43,8 +45,11 @@ class HomePage extends StatelessWidget {
       body: TabBarView(
         children: [
           Scaffold(
-
-          )
+            body: HomeNewsPageWrapperProvider(),
+          ),
+          Scaffold(
+            body: FavoritePageWrapperProvider(),
+          ),
         ],
       ),
     );
