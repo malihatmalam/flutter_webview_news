@@ -14,7 +14,9 @@ const cacheFailureMessage = 'Ups, chache failed. Please try again!';
 class FavoriteCubit extends Cubit<FavoriteState> {
 
   final FavoriteUseCases _favoriteUseCases = FavoriteUseCases();
-  FavoriteCubit() : super(FavoriteInitial());
+  FavoriteCubit() : super(FavoriteInitial()){
+    favoriteGetData();
+  }
 
   void favoriteGetData() async {
     emit(FavoriteLoading());
